@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService {
 
-    @Autowired //inyeccion de repository
+    @Autowired //inyeccion de repository. definir repository en el servicio
     StudentRepository studentRepository;
 
     public List<Student> getStudents(){
@@ -21,8 +21,8 @@ public class StudentService {
         return studentRepository.findById(id);
     }
 
-    public void saveOrUpdate(Student student) {
-        studentRepository.save(student);
+    public Student saveOrUpdate(Student student) {
+        return studentRepository.save(student);
     }
 
     public void delete(Long id) {
